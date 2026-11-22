@@ -1,0 +1,637 @@
+/* ==========================================================================
+   Notion / 現代卡片風 全站共用樣式表 (style.css)
+   專案：個人主題介紹網站 (Topic Notes Library)
+   ========================================================================== */
+
+:root {
+  --bg-main: #F7F7F5;
+  --bg-card: #FFFFFF;
+  --bg-callout: #F1F1EF;
+  --bg-tag: #EFEFEF;
+  --bg-tag-active: #37352F;
+  --text-tag-active: #FFFFFF;
+  
+  --text-primary: #37352F;
+  --text-secondary: #787774;
+  --text-muted: #9B9A97;
+  
+  --border-light: rgba(55, 53, 47, 0.09);
+  --border-card: #E9E9E7;
+  --border-focus: #2383E2;
+  
+  --accent-blue: #2383E2;
+  --accent-callout-border: #D3D3D0;
+  
+  --shadow-sm: 0 1px 2px rgba(15, 15, 15, 0.05);
+  --shadow-md: 0 4px 12px rgba(15, 15, 15, 0.08);
+  --shadow-hover: 0 6px 18px rgba(15, 15, 15, 0.12);
+  
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  
+  --max-content-width: 820px;
+  --max-site-width: 1120px;
+}
+
+/* Reset & 基礎設定 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-blue);
+}
+
+/* 佈局容器 */
+.container {
+  width: 100%;
+  max-width: var(--max-site-width);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+.article-container {
+  max-width: var(--max-content-width);
+}
+
+/* ==========================================================================
+   首頁 (Index) 區塊樣式
+   ========================================================================== */
+
+/* 頁頭 Header */
+.site-header {
+  margin-bottom: 2.5rem;
+}
+
+.header-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: var(--bg-tag);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.75rem;
+}
+
+.site-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.site-desc {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* 工具列（搜尋與分類過濾） */
+.controls-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: var(--bg-card);
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-card);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2rem;
+}
+
+.search-box {
+  position: relative;
+  width: 100%;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  background: var(--bg-main);
+  color: var(--text-primary);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.search-box input:focus {
+  background: #FFFFFF;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(35, 131, 226, 0.15);
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  pointer-events: none;
+}
+
+.category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  background: var(--bg-tag);
+  color: var(--text-secondary);
+  border: none;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.filter-btn:hover {
+  background: #E4E4E2;
+  color: var(--text-primary);
+}
+
+.filter-btn.active {
+  background: var(--bg-tag-active);
+  color: var(--text-tag-active);
+}
+
+/* 統計資訊列 */
+.stats-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  padding: 0 0.25rem;
+}
+
+/* 主題卡片網格 */
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+/* 單張卡片樣式 */
+.topic-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+  text-decoration: none;
+}
+
+.topic-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  border-color: #D3D3D0;
+}
+
+.card-top {
+  margin-bottom: 1rem;
+}
+
+.card-tags {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.card-category {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-tag);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+}
+
+.card-status {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+}
+
+.status-ready {
+  background: #EBF5EE;
+  color: #2B7A4B;
+}
+
+.status-draft {
+  background: #F7EFE5;
+  color: #925400;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.card-summary {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.card-read-more {
+  font-weight: 600;
+  color: var(--accent-blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* ==========================================================================
+   單篇筆記 (Topic Page) 樣式
+   ========================================================================== */
+
+/* 麵包屑導覽 */
+.breadcrumb {
+  margin-bottom: 1.75rem;
+}
+
+.breadcrumb a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  padding: 0.35rem 0.75rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.breadcrumb a:hover {
+  background: #FFFFFF;
+  color: var(--accent-blue);
+  border-color: var(--border-focus);
+}
+
+/* 主題文章容器 */
+.topic-article {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* 主題標頭 Header */
+.topic-header {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.topic-title {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.topic-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.topic-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.meta-pill {
+  background: var(--bg-tag);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+}
+
+/* 內容卡片通用設定 */
+.section-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.section-card h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 0.65rem;
+}
+
+/* 區塊一：核心定義 Callout Card */
+.callout-card {
+  background: var(--bg-callout);
+  border-left: 4px solid var(--accent-callout-border);
+}
+
+.core-definition {
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #2F2E2B;
+  line-height: 1.75;
+}
+
+/* 區塊二：重點速覽清單 */
+.highlight-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.highlight-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.highlight-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0.35rem;
+  top: 0;
+  color: var(--text-muted);
+  font-size: 1.25rem;
+}
+
+/* 區塊三：詳細解析內文 */
+.detail-content h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-top: 1.75rem;
+  margin-bottom: 0.85rem;
+  color: var(--text-primary);
+}
+
+.detail-content h3:first-child {
+  margin-top: 0;
+}
+
+.detail-content h4 {
+  font-size: 1.02rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.detail-content p {
+  font-size: 0.98rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.detail-content ol, 
+.detail-content ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.detail-content li {
+  margin-bottom: 0.45rem;
+  font-size: 0.96rem;
+}
+
+/* 表格樣式 (Notion 現代風表格) */
+.table-wrapper {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-card);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  text-align: left;
+}
+
+thead {
+  background: #F4F4F2;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-light);
+  border-right: 1px solid var(--border-light);
+}
+
+th:last-child, td:last-child {
+  border-right: none;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background: #FAF9F7;
+}
+
+th {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* 程式碼與行內代碼 */
+code {
+  font-family: var(--font-mono);
+  background: var(--bg-callout);
+  padding: 0.2rem 0.4rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.88em;
+  color: #EB5757;
+}
+
+pre {
+  background: #2F3437;
+  color: #F8F8F2;
+  padding: 1.25rem;
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin: 1.25rem 0;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+/* 區塊四：參考資料與試題連結 */
+.reference-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.reference-list li {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.reference-list li::before {
+  content: "↳";
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+}
+
+.exam-pill {
+  display: inline-block;
+  background: #EAF3FC;
+  color: #1A73E8;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-right: 0.4rem;
+}
+
+/* 底部導覽 */
+.topic-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.92rem;
+}
+
+.topic-footer a {
+  color: var(--text-secondary);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.topic-footer a:hover {
+  background: var(--bg-card);
+  color: var(--accent-blue);
+}
+
+/* 全站頁尾 Footer */
+.site-footer {
+  margin-top: auto;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-light);
+}
+
+/* RWD 響應式優化 */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .site-title {
+    font-size: 1.75rem;
+  }
+  
+  .topic-title {
+    font-size: 1.5rem;
+  }
+  
+  .topic-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-card {
+    padding: 1.35rem;
+  }
+  
+  .topic-header {
+    padding: 1.5rem 1.25rem;
+  }
+}

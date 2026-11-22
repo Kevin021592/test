@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iPAS AI 應用規劃師 - 主題介紹與知識庫</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="index-page">
+  <div class="container">
+    
+    <!-- 首頁頁頭 -->
+    <header class="site-header">
+      <span class="header-badge">Knowledge Base &bull; iPAS AI 專業筆記</span>
+      <h1 class="site-title">AI 主題介紹與學習知識庫</h1>
+      <p class="site-desc">
+        依據「一個主題、獨立一篇」原則整理之系統化主題筆記，完全忠於原始資料，提供清晰、極簡、專注的學習與複習體驗。
+      </p>
+    </header>
+
+    <!-- 控制工具列：即時搜尋與分類過濾 -->
+    <section class="controls-bar">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" placeholder="搜尋主題關鍵字（例如：RAG、向量、混淆矩陣、Transformer...），可按 '/' 鍵快速聚焦" autocomplete="off">
+      </div>
+
+      <div class="category-filter">
+        <button class="filter-btn active" data-filter="all">全部主題</button>
+        <button class="filter-btn" data-filter="genai">生成式 AI 與語言模型</button>
+        <button class="filter-btn" data-filter="ml">機器學習與評估指標</button>
+        <button class="filter-btn" data-filter="dl">深度學習架構</button>
+        <button class="filter-btn" data-filter="ops-gov">維運、安全與治理</button>
+        <button class="filter-btn" data-filter="exam">試題庫與解析</button>
+      </div>
+    </section>
+
+    <!-- 狀態統計列 -->
+    <div class="stats-info">
+      <span>正在顯示 <strong id="visible-count">0</strong> / <span id="total-count">0</span> 個主題單元</span>
+      <span>架構：純靜態 HTML &bull; 支援 GitHub Pages</span>
+    </div>
+
+    <!-- 主題卡片網格清單 -->
+    <main class="topic-grid">
+
+      <!-- 卡片 1: RAG (已完整建置) -->
+      <a href="./topics/rag-architecture.html" class="topic-card" data-category="genai">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-category">生成式 AI</span>
+            <span class="card-status status-ready">✓ 已建立</span>
+          </div>
+          <h2 class="card-title">檢索增強生成（RAG）</h2>
+          <p class="card-summary">
+            先把相關知識找給 LLM，讓 LLM 去理解與生成。包含 9 大運作流程、Chunking 切片策略、Embedding 向量化與 RAGAS 評估指標。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>完整筆記 + 4 道考題解析</span>
+          <span class="card-read-more">閱讀主題 →</span>
+        </div>
+      </a>
+
+      <!-- 卡片 2: NLP 基礎與前處理 (規劃中) -->
+      <a href="#nlp-basics" class="topic-card" data-category="genai">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-category">生成式 AI</span>
+            <span class="card-status status-draft">待產生</span>
+          </div>
+          <h2 class="card-title">NLP / NLU / NLG 核心與文本前處理</h2>
+          <p class="card-summary">
+            自然語言處理家族概念、分詞 (Tokenization)、停用詞移除、詞幹提取與詞形還原、特徵向量化 (BOW / TF-IDF / Embedding)。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>涵蓋文本清理與特徵工程</span>
+          <span class="card-read-more">即將建立 →</span>
+        </div>
+      </a>
+
+      <!-- 卡片 3: LLM 核心概念 (規劃中) -->
+      <a href="#llm-fundamentals" class="topic-card" data-category="genai">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-category">生成式 AI</span>
+            <span class="card-status status-draft">待產生</span>
+          </div>
+          <h2 class="card-title">大型語言模型（LLM）架構與層次</h2>
+          <p class="card-summary">
+            Transformer 架構、預測下一個詞、模型使用的三個層次（選模型、微調層、模板層）與導入順序最佳實踐。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>大模型核心原理與限制</span>
+          <span class="card-read-more">即將建立 →</span>
+        </div>
+      </a>
+
+      <!-- 卡片 4: 微調 Fine-tuning (規劃中) -->
+      <a href="#fine-tuning" class="topic-card" data-category="genai">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-category">生成式 AI</span>
+            <span class="card-status status-draft">待產生</span>
+          </div>
+          <h2 class="card-title">模型微調（Fine-tuning）與 LoRA</h2>
+          <p class="card-summary">
+            指令微調 (Instruction Tuning)、LoRA / QLoRA 低成本微調、全參數微調差異，以及與 RAG 的完整特性對比表。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>附桃園機場問答實戰案例</span>
+          <span class="card-read-more">即將建立 →</span>
+        </div>
+      </a>
+
+      <!-- 卡片 5: Prompt Engineering (規劃中) -->
+      <a href="#prompt-engineering" class="topic-card" data-category="genai">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-category">生成式 AI</span>
+            <span class="card-status status-draft">待產生</span>
+          </div>
+          <h2 class="card-title">提示工程（Prompt Engineering）SOP</h2>
+          <p class="card-summary">
+            結構化提示五大要素：角色 (Role)、背景 (Context)、任務 (Task)、限制 (Constraints)、格式 (Format) 與反洗錢審核範例。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>專業 Prompt 結構化框架</span>
+          <span class="card-read-more">即將建立 →</span>
+        </div>
+      </a>
+
+      <!-- 卡片 6: AI Agent 與 MCP (規劃中) -->
+      <a href="#ai-agent-and-mcp" class="topic-card" data-category="genai">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-category">生成式 AI</span>
+            <span class="card-status status-draft">待產生</span>
+          </div>
+          <h2 class="card-title">AI Agent 與 MCP (Model Context Protocol)</h2>
+          <p class="card-summary">
+            自主代理特點與工具箱、A2A 協作模式、MCP 協定 10 步運作流程（Host、Client、Server）與跨模型工具呼叫優勢。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>自主決策與工具呼叫架構</span>
+          <span class="card-read-more">即將建立 →</span>
+        </div>
+      </a>
+
+      <!-- 卡片 7: 鑑別式 vs 生成式 AI (規劃中) -->
+      <a href="#generative-vs-discriminative" class="topic-card" data-category="genai">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-category">生成式 AI</span>
+            <span class="card-status status-draft">待產生</span>
+          </div>
+          <h2 class="card-title">鑑別式 vs. 生成式 AI 與核心模型</h2>
+          <p class="card-summary">
+            兩者目標與邊界、GAN 對抗網路、VAE 變分自編碼器、Diffusion 擴散模型原理，以及 Temperature / Top-p 參數解析。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>圖像與文本生成機制拆解</span>
+          <span class="card-read-more">即將建立 →</span>
+        </div>
+      </a>
+
+      <!-- 卡片 8: LangChain 框架 (規劃中) -->
+      <a href="#langchain-framework" class="topic-card" data-category="genai">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-category">生成式 AI</span>
+            <span class="card-status status-draft">待產生</span>
+          </div>
+          <h2 class="card-title">LangChain 開源框架核心元件</h2>
+          <p class="card-summary">
+            PromptTemplate、LLM、Chains、Memory、Tools、Agents、Retrievers 白話說明與 5 大適合應用場景。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>結構化串聯 LLM 前後流程</span>
+          <span class="card-read-more">即將建立 →</span>
+        </div>
+      </a>
+
+      <!-- 卡片 9: 機器學習四大範式 (規劃中) -->
+      <a href="#ml-paradigms" class="topic-card" data-category="ml">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-category">機器學習</span>
+            <span class="card-status status-draft">待產生</span>
+          </div>
+          <h2 class="card-title">機器學習四大訓練範式與情境決策</h2>
+          <p class="card-summary">
+            監督式、非監督式、自監督式、半監督式與強化學習 (RL)；涵蓋線上教育平台學生掉隊預測真實案例剖析。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>標籤有無與模型訓練策略</span>
+          <span class="card-read-more">即將建立 →</span>
+        </div>
+      </a>
+
+      <!-- 卡片 10: 混淆矩陣與評估指標 (規劃中) -->
+      <a href="#confusion-matrix-and-metrics" class="topic-card" data-category="ml">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-category">機器學習</span>
+            <span class="card-status status-draft">待產生</span>
+          </div>
+          <h2 class="card-title">混淆矩陣、評估指標與閾值調整</h2>
+          <p class="card-summary">
+            TP/FP/TN/FN、Accuracy、Precision、Recall、F1-score 計算公式；閥值 (Threshold) 設高與設低的權衡，ROC 與 AUC 曲線意義。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>模型好壞診斷核心考點</span>
+          <span class="card-read-more">即將建立 →</span>
+        </div>
+      </a>
+
+      <!-- 卡片 11: 過擬合與欠擬合 (規劃中) -->
+      <a href="#overfitting-and-underfitting" class="topic-card" data-category="ml">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-category">機器學習</span>
+            <span class="card-status status-draft">待產生</span>
+          </div>
+          <h2 class="card-title">過擬合 (Overfitting) 與欠擬合 (Underfitting)</h2>
+          <p class="card-summary">
+            發生原因、Epoch 訓練/驗證誤差診斷；改善方法：資料增強、早停法 (Early Stopping)、正規化 L1 (Lasso) 與 L2 (Ridge) 比較。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>高方差 vs 高偏差解決手冊</span>
+          <span class="card-read-more">即將建立 →</span>
+        </div>
+      </a>
+
+      <!-- 卡片 12: 傳統 ML 模型演算法 (規劃中) -->
+      <a href="#ml-models" class="topic-card" data-category="ml">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-category">機器學習</span>
+            <span class="card-status status-draft">待產生</span>
+          </div>
+          <h2 class="card-title">常見機器學習演算法重點整理</h2>
+          <p class="card-summary">
+            非監督式：K-means 分群、PCA 主成分分析；監督式：線性/羅吉斯迴歸、決策樹、隨機森林、SVM、KNN 近鄰演算法。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>演算法基本流程與適用時機</span>
+          <span class="card-read-more">即將建立 →</span>
+        </div>
+      </a>
+
+      <!-- 卡片 13: 深度學習 CNN 架構 (規劃中) -->
+      <a href="#deep-learning-cnn" class="topic-card" data-category="dl">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-category">深度學習</span>
+            <span class="card-status status-draft">待產生</span>
+          </div>
+          <h2 class="card-title">CNN 卷積神經網路各層剖析</h2>
+          <p class="card-summary">
+            卷積層 (Kernel、Stride、Zero-padding)、感受野、激活函數 (ReLU / Tanh)、池化層 (Pooling)、全連接層與 Softmax 機率輸出。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>影像處理與深度神經網路</span>
+          <span class="card-read-more">即將建立 →</span>
+        </div>
+      </a>
+
+      <!-- 卡片 14: 序列模型與 Transformer (規劃中) -->
+      <a href="#sequence-and-transformer" class="topic-card" data-category="dl">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-category">深度學習</span>
+            <span class="card-status status-draft">待產生</span>
+          </div>
+          <h2 class="card-title">RNN / LSTM / Transformer 演進</h2>
+          <p class="card-summary">
+            RNN 長序列梯度消失、LSTM 三大門控（遺忘門、輸入門、輸出門）、Transformer 自注意力機制 (Self-Attention) 與 BERT / GPT / T5 架構分類。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>語言模型演進核心關鍵</span>
+          <span class="card-read-more">即將建立 →</span>
+        </div>
+      </a>
+
+      <!-- 卡片 15: 資料隱私保護方法 (規劃中) -->
+      <a href="#data-privacy-protection" class="topic-card" data-category="ops-gov">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-category">安全與治理</span>
+            <span class="card-status status-draft">待產生</span>
+          </div>
+          <h2 class="card-title">資料隱私保護四大核心技術</h2>
+          <p class="card-summary">
+            聯邦學習 (FL, 資料留在本地)、差分隱私 (DP, 結果端加噪音)、同態加密 (HE, 計算端加密運算)、K-匿名化；遮蔽 vs 概括化對照。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>合規防護與去識別化技術</span>
+          <span class="card-read-more">即將建立 →</span>
+        </div>
+      </a>
+
+      <!-- 卡片 16: MLOps 與 LLMOps (規劃中) -->
+      <a href="#mlops-and-llmops" class="topic-card" data-category="ops-gov">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-category">安全與治理</span>
+            <span class="card-status status-draft">待產生</span>
+          </div>
+          <h2 class="card-title">MLOps 與 LLMOps 維運與漂移監控</h2>
+          <p class="card-summary">
+            MLOps 生命週期、資料預處理編碼（Label vs One-Hot）、三大漂移監控（概念漂移、數據漂移 PSI、標籤漂移）；LLMOps 成本與品質管理。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>模型上線後的持續維運管理</span>
+          <span class="card-read-more">即將建立 →</span>
+        </div>
+      </a>
+
+      <!-- 卡片 17: 可解釋 AI (XAI) (規劃中) -->
+      <a href="#xai-explainable-ai" class="topic-card" data-category="ops-gov">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-category">安全與治理</span>
+            <span class="card-status status-draft">待產生</span>
+          </div>
+          <h2 class="card-title">可解釋人工智慧（XAI）：LIME vs SHAP</h2>
+          <p class="card-summary">
+            為什麼需要 XAI？LIME 局部近似試驗 vs SHAP 基於 Shapley Value 的貢獻分配；信用卡核貸案例與兩者特性完整比較表。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>黑箱模型決策透明化</span>
+          <span class="card-read-more">即將建立 →</span>
+        </div>
+      </a>
+
+      <!-- 卡片 18: 常見 AI 資安攻擊 (規劃中) -->
+      <a href="#ai-security-attacks" class="topic-card" data-category="ops-gov">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-category">安全與治理</span>
+            <span class="card-status status-draft">待產生</span>
+          </div>
+          <h2 class="card-title">常見 AI 資安攻擊手法解析</h2>
+          <p class="card-summary">
+            提示注入 (Prompt Injection / 越獄)、間接注入 (Indirect Injection)、資料投毒 (Data Poisoning / 後門)、模型反向攻擊與對抗性攻擊。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>AI 系統威脅模型與防禦考點</span>
+          <span class="card-read-more">即將建立 →</span>
+        </div>
+      </a>
+
+      <!-- 卡片 19: AI 治理與法規 (規劃中) -->
+      <a href="#ai-governance-eu-act" class="topic-card" data-category="ops-gov">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-category">安全與治理</span>
+            <span class="card-status status-draft">待產生</span>
+          </div>
+          <h2 class="card-title">AI 治理法規：歐盟 AI 法案與基本法</h2>
+          <p class="card-summary">
+            歐盟 AI Act 四級風險分級管理（最低風險、有限風險透明告知、高風險嚴格合規、不可接受風險完全禁用）及法規要求。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>法規遵從與風險分級標準</span>
+          <span class="card-read-more">即將建立 →</span>
+        </div>
+      </a>
+
+      <!-- 卡片 20: 114 年第四次考題：第一科 人工智慧基礎概論 (規劃中) -->
+      <a href="#exam-114-foundations" class="topic-card" data-category="exam">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-category">試題庫</span>
+            <span class="card-status status-draft">待產生</span>
+          </div>
+          <h2 class="card-title">114-4 第一科：人工智慧基礎概論</h2>
+          <p class="card-summary">
+            官方 50 題完整題庫與解答，涵蓋特徵工程、偏差與變異、正則化、決策邊界、機器學習範式、評估指標與聯邦學習試題。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>50 題完整試題與考點標註</span>
+          <span class="card-read-more">即將建立 →</span>
+        </div>
+      </a>
+
+      <!-- 卡片 21: 114 年第四次考題：第二科 生成式 AI 應用與規劃 (規劃中) -->
+      <a href="#exam-114-generative" class="topic-card" data-category="exam">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-category">試題庫</span>
+            <span class="card-status status-draft">待產生</span>
+          </div>
+          <h2 class="card-title">114-4 第二科：生成式 AI 應用與規劃</h2>
+          <p class="card-summary">
+            官方 50 題完整題庫與解答，涵蓋 Low Code、APE、MCP 協定、A2A 架構、RAG 優化、提示工程、Guardrails 與評測指標。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>50 題完整試題與考點標註</span>
+          <span class="card-read-more">即將建立 →</span>
+        </div>
+      </a>
+
+    </main>
+
+    <!-- 全站頁尾 -->
+    <footer class="site-footer">
+      <p>iPAS AI 應用規劃師知識庫 &bull; 專注整理使用者提供之專業資料 &bull; 遵循 AGENTS.md 規範</p>
+    </footer>
+  </div>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>
